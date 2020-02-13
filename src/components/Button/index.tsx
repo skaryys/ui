@@ -22,6 +22,7 @@ export type ButtonProps =
 const ButtonStyle = styled(Flex)<system.TypographyProps>`
   cursor: pointer;
   text-decoration: none;
+  outline: none;
 
   &:disabled {
     cursor: not-allowed;
