@@ -4,4 +4,8 @@ export interface ContainerTheme {
   container: FlexProps;
 }
 
-export const container = (container: FlexProps): ContainerTheme => ({ container });
+const emptyContainer: FlexProps = {
+  width: ['100%', '76.8rem', '102.4rem', '120rem', '132rem']
+};
+
+export const container = (c: FlexProps = emptyContainer): ContainerTheme => ({ container: c });

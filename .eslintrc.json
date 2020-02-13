@@ -1,24 +1,38 @@
 {
-  "env": {
-    "browser": true,
-    "es6": true,
-    "node": true
-  },
-  "extends": [
-    "alfonz"
-  ],
-  "rules": {
-    "space-infix-ops": "warn",
-    "react-hooks/rules-of-hooks": "off",
-    "max-statements-per-line": ["error", { "max": 1 }],
-    "jsx-quotes": ["error", "prefer-double"],
-    "operator-linebreak": ["warn", "before"],
-    "multiline-ternary": ["warn", "always-multiline"],
-    "react/no-unescaped-entities": ["off"]
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "standard"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+      "react/prop-types": "off",
+      "no-unused-vars": "off",
+      "semi": ["warn", "always", { "omitLastInOneLineBlock": true }],
+      "react/no-unescaped-entities": "off",
+      "no-shadow": "error",
+      "max-len": ["error", { "code": 120, "tabWidth": 2, "ignoreTemplateLiterals": true, "ignoreComments": true }],
+      "react/jsx-first-prop-new-line": ["error", "multiline"],
+      "no-undef": "off",
+      "no-console": "warn"
     }
-  }
 }

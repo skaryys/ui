@@ -1,15 +1,14 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import styled from 'styled-components';
 import { system } from 'styled-system';
 
 import Flex, { FlexProps } from './Flex';
 
 export type IconProps = {
-  svg?: any;
+  svg?: ReactNode;
   fill?: string;
   fillHover?: string;
-} & FlexProps
-
+} & FlexProps;
 
 const Svg = styled(Flex)<IconProps>`
   flex-shrink: 0;
@@ -25,8 +24,8 @@ const Svg = styled(Flex)<IconProps>`
       ${system({
     fill: {
       property: 'fill',
-      scale: 'colors',
-    },
+      scale: 'colors'
+    }
   })}
 
     }
@@ -40,17 +39,19 @@ const Svg = styled(Flex)<IconProps>`
     svg {
       path {
         ${system({
-    fillHover: {
-      property: 'fill',
-      scale: 'colors',
-    },
-  })}
+          fillHover: {
+            property: 'fill',
+            scale: 'colors'
+          }
+        })}
       }
     }
   }
 `;
 
-const Icon: FC<IconProps> = ({ svg, ...props }) => {
+export type ExtendedIconProps = IconProps;
+
+const Icon: FC<ExtendedIconProps> = ({ svg, ...props }) => {
   return (
     <Svg display="inline-block" verticalAlign="middle" maxHeight="100%" {...props}>
       {svg}

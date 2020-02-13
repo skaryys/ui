@@ -1,17 +1,16 @@
-import { Box, Container, container, useTheme, XcoreTheme } from 'index';
+import { Box, Container, container, createTheme, useTheme } from 'index';
 import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-
 export default { title: 'Theme' };
 
-const theme: XcoreTheme = {
+const theme = createTheme({
   name: 'Container theme',
   ...container({
     width: '70%',
     background: 'grey'
   })
-};
+});
 
 export const WithContainer: FC = () => (
   <ThemeProvider theme={theme}>
@@ -35,7 +34,7 @@ export const GetThemeValue: FC = () => (
 );
 
 const ThemeToJSON: FC = () => {
-  const theme = useTheme();
+  const t = useTheme();
 
-  return <pre>{JSON.stringify(theme, null, 2)}</pre>;
+  return <pre>{JSON.stringify(t, null, 2)}</pre>;
 };
